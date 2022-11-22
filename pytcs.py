@@ -8,7 +8,14 @@ import os, cv2, shutil, numpy as np
 from pathlib import Path
 import moviepy.video.io.ImageSequenceClip
 
-class pytcs:
+class pytcstools:
+    """
+    Set of tools to process video frames.
+    1. recreate_video: create a video from a set of sequential images in a image folder.
+    2. cropframes: save cropped frames from a video.
+    3. writeframes: save all frames(uncropped) from a video.
+    4. videotrimmer: use to trim/save video or video frames.
+    """
     def __init__(self, vid, out):
         self.vid = vid
         self.out = out
@@ -295,7 +302,6 @@ class pytcs:
         else:
             print("Enable trimvideo or saveframes option to see results")
 
-A = pytcs("R5.mp4", "cut.mp4")
 
 
 """Tests"""
@@ -317,15 +323,6 @@ A = pytcs("R5.mp4", "cut.mp4")
 # |                                                 |
 # |-------------------------------------------(x2, y2)
 
-
-
-A.videotrimmer("00:00:00", "00:10:00", trimvideo=False, saveframes=True, crop=True, 
-                topleft_x = 0, 
-                topleft_y = 200, 
-                bottomright_x = 490, 
-                bottomright_y = 370,
-                dest = "all_frames",
-                FPS=1)
 
 
 
